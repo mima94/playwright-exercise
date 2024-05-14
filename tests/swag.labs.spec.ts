@@ -1,5 +1,4 @@
 import {test, expect} from '@playwright/test';
-import { escape } from 'querystring';
 
 test.beforeEach ("Navigating to the page", async ({page}) => {
 
