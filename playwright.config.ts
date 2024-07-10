@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -23,6 +22,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    launchOptions: {args: ["--start-maximized"],},
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
@@ -35,7 +35,8 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { headless:false,
-        ...devices['Desktop Chrome'] },
+        viewport:null },
+        
     },
 
     {
