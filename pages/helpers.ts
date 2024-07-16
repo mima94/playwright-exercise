@@ -15,6 +15,7 @@ export class Helepers{
     readonly currentAddress = "East Cost 55";
     readonly permanentAddress = "Join Us 33";
 
+    //checkboxPage
 
     readonly page: Page;
 

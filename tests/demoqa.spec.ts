@@ -1,6 +1,7 @@
 import {test, expect} from '@playwright/test';
 import { DemoqaHomepage } from '../pages/homepage';
 import { DemoqaTextboxPage } from '../pages/textboxpage';
+import { DemoqaCheckboxPage } from '../pages/checkboxpage';
 const { ZenRows } = require("zenrows");
 
 //Navigating to the page
@@ -43,7 +44,6 @@ test ('Log in', async ({page}) => {
     const demoqaHomepage = new DemoqaHomepage(page);
     await demoqaHomepage.logIn();
     await expect.soft(page.locator('#userName-value')).toHaveText("kiddytest@yopmail.com");
-    
 });
 
 test('Log out', async ({ page }) => {
@@ -60,5 +60,12 @@ test ('Text Box', async({page}) =>{
     await demoqaTextboxPage.inputCurrentAddress();
     await demoqaTextboxPage.inputPemanentAddress();
     await demoqaTextboxPage.clickSubmit();    
-    
 });
+
+test('Checkbox page', async ({ page }) => {
+    const demoqaCheckboxPage = new DemoqaCheckboxPage(page);
+    await demoqaCheckboxPage.gotoCheckboxPage();
+    await demoqaCheckboxPage.clickMore();
+    await demoqaCheckboxPage.clickOneMore();
+    await demoqaCheckboxPage.check();
+   });
